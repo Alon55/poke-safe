@@ -89,13 +89,13 @@ export default function Header(props) {
                 <div style={{ width: 300, height: 100, borderRadius: 10 }}>
                   <p>Date format</p>
                   <div style={{ pointerEvents: "auto" }}>
-                    <span>dd/mm/yyyy</span>
+                    <span>mm.dd.yyyy</span>
                     <Switch
                       defaultChecked
                       color="default"
                       onChange={handleDateFormat}
                     />
-                    <span>mm.dd.yyyy</span>
+                    <span>dd/mm/yyyy</span>
                   </div>
                 </div>
               }
