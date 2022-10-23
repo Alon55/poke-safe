@@ -24,17 +24,14 @@ export default function PokemonsList(props) {
     })
       .then((response) => response.json())
       .then((data) => {
-
-        const pokemonsListBuild = []
-
         data.results.map(pokemon => {
           fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`, {
             method: "GET"
           })
             .then((response) => response.json()).then(pokemonObj => {
-              pokemonsListBuild.push(pokemonObj)
-              return pokemonsListBuild
-            }).then((data) => { setFilterPokemonsList(data); setPokemonsList(data) })
+              setFilterPokemonsList(prev => [...prev, pokemonObj]);
+              setPokemonsList(prev => [...prev, pokemonObj])
+            })
             .catch((error) => { console.error("Error:", error); })
           return 'sucsses'
         })
